@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD com JavaScript</title>
+    <style>
+        .first-container {
+            display: flex;
+            flex-direction: column;
+        }
+        .mainInput {
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 5px;           
+        }
+        .range {
+            width: 300px;               
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>CRUD com JavaScript</h1>
+        <div class="first-container">
+            <input type="text" class="mainInput" id="name" placeholder="Nome completo" required>
+            <input type="email" class="mainInput" id="email" placeholder="E-mail" required>
+            <input type="password" class="mainInput" id="password" placeholder="Senha" required>
+            <input type="text" class="mainInput" id="country" placeholder="País" required>
+            <input type="date" class="mainInput" id="birthdate" placeholder="Data de nascimento" required>
+        </div>
+
+        <div>
+            <h2>Linguagens de programação que estuda:</h2>
+            <label><input type="checkbox" name="language" value="Java"> Java</label>
+            <label><input type="checkbox" name="language" value="JavaScript"> JavaScript</label>
+            <label><input type="checkbox" name="language" value="C#"> C#</label>
+            <label><input type="checkbox" name="language" value="Python"> Python</label>
+            <label><input type="checkbox" name="language" value="PHP"> PHP</label>
+            <label><input type="checkbox" name="language" value="C++"> C++</label>
+            <label><input type="checkbox" name="language" value="C"> C</label>
+            <input type="text" id="otherLanguage" placeholder="Outra linguagem?">
+        </div>
+
+        <h2>Horas de estudo por semana:</h2>
+        <input class="range" type="range" id="study" min="0" max="40" value="10">
+        <span id="hoursValue">10</span> horas
+
+        <hr>
+        <div>
+            <button onclick="registerUser()">Cadastrar</button>
+            <button onclick="loadUsers()">Carregar Usuários</button>
+        </div>
+
+        <div id="usersList"></div>
+    </section>
+
+    <script>
+        // Atualiza o valor exibido do range
+        document.getElementById('study').addEventListener('input', function() {
+            document.getElementById('hoursValue').textContent = this.value;
+        });
+
+        async function registerUser() {
+            // Coletar dados do formulário
+            const userData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                country: document.getElementById('country').value,
+                birthdate: document.getElementById('birthdate').value,
+                studyHours: document.getElementById('study').value,
+                languages: []
+            };
+
+            // Coletar linguagens selecionadas
+            document.querySelectorAll('input[name="language"]:checked').forEach(checkbox => {
+                userData.languages.push(checkbox.value);
+            });
+
+            // Adicionar linguagem manual se preenchida
+            const otherLang = document.getElementById('otherLanguage').value;
+            if (otherLang) userData.languages.push(otherLang);
+
+            try {
+                const response = await fetch('http://localhost:3000/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData)
+                });
+
+                const result = await response.json();
+                alert(result.message || 'Usuário cadastrado com sucesso!');
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao cadastrar usuário');
+            }
+        }
+
+        async function loadUsers() {
+            try {
+                const response = await fetch('http://localhost:3000/users');
+                const users = await response.json();
+                
+                const usersList = document.getElementById('usersList');
+                usersList.innerHTML = 'usuários cadastrados:<br>';
+                users.forEach(user => {
+                    usersList.innerHTML += `<p>${user.name} - ${user.email}</p>`;
+                });
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao carregar usuários');
+            }
+        }

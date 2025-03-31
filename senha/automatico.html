@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>gerador de senha automática</h1>
+
+    <script>
+
+        let anoVigente = 2025
+        let verificador1 = 3112040
+        let verificador2 = 1970
+        let verificador3 = 5
+        
+        let chave1 = (anoVigente / 3) + verificador1
+        let chave2 = chave1 - verificador2
+        let chave3 = chave2 * verificador3
+
+        let novaSenha = chave1 + chave2 + chave3
+
+        alert(novaSenha)
+    </script>
+</body>
+</html>

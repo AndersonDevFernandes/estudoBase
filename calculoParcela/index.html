@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <section>        
+    <h1>
+        CALCULO DE VALOR DE PARCELA
+    </h1>
+        <input type="text" id="marca" placeholder="Marca do Carro">
+        <input type="text" id="nome" placeholder="Digite seu nome">
+        <input type="number" id="valorTotal" placeholder="Digite o valor do carro">
+        <input type="number" id="parcela" placeholder="Digite quantidade de parcelas">        
+        <button onclick="calcular()">Calcular</button>
+    </section>
+    <script>
+        const calcular = () => {
+        const marca = document.getElementById('marca').value;
+        const nome = document.getElementById('nome').value;
+        const valorTotal = parseFloat(document.getElementById('valorTotal').value);
+        const parcela = parseInt(document.getElementById('parcela').value);
+
+        const valorParcela = valorTotal / parcela;
+        const valorJuros = valorParcela * 0.03;
+        const valorFinal = valorParcela + valorJuros;
+
+        alert(`O valor da parcela do ${marca} é de R$ ${valorFinal.toFixed(2)}`);
+       }      
+    </script>
+</body>
+</html>

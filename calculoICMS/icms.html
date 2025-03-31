@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de ICMS</title>
+</head>
+<body>
+
+    <section>
+        <h1>CÁLCULO DE ICMS</h1>
+        <input type="number" id="valorProduto" placeholder="Digite o valor do produto">
+        
+        <select id="estado">
+            <option value="PE">PE</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+            <option value="MG">MG</option>
+            <option value="ES">ES</option>
+            <option value="RN">RN</option>
+        </select>
+
+        <button onclick="calcular()">CALCULAR</button>
+
+        <h2 id="resultado">Total com ICMS: R$ 0,00</h2>
+    </section>
+
+    <script>
+        const icmsPorEstado = {
+            "PE": 18,
+            "SP": 12,
+            "RJ": 20,
+            "MG": 18,
+            "ES": 17,
+            "RN": 18
+        };
+
+        function calcular() {
+            const valorProduto = parseFloat(document.getElementById("valorProduto").value);
+            const estado = document.getElementById("estado").value;
+            const icms = icmsPorEstado[estado] / 100; // Convertendo porcentagem para decimal
+            
+            if (isNaN(valorProduto) || valorProduto <= 0) {
+                alert("Digite um valor válido para o produto!");
+                return;
+            }
+
+            const valorComICMS = valorProduto + (valorProduto * icms);
+            document.getElementById("resultado").innerText = `Total com ICMS: R$ ${valorComICMS.toFixed(2)}`;
+        }
+    </script>
+
+</body>
+</html>

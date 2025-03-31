@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Example</title>
+</head>
+<body>
+    <h1>SWITCH</h1>
+
+    <section>
+        <input type="text" id="profissao" list="lista">
+        <datalist id="lista">
+            <option value="comprador">Comprador</option>
+            <option value="analista">Analista</option>
+            <option value="programador">Programador</option>
+        </datalist>
+    </section>
+    <br>
+    <button onclick="registrar()">Registrar</button>
+
+    <script>
+        // Objetos com informações sobre cada profissão
+        const comprador = {
+            salario: "R$ 3.000,00",
+            cargo: "Comprador",
+            software: "SAP, ERP, Excel Avançado"
+        };
+
+        const analista = {
+            salario: "R$ 5.000,00",
+            cargo: "Analista",
+            software: "Excel Avançado, Power BI, SQL"
+        };
+
+        const programador = {
+            salario: "R$ 10.000,00",
+            cargo: "Programador",
+            software: "Java, C++, Python"
+        };
+
+        function registrar() {
+            // Obtém o valor digitado no input
+            let profissao = document.getElementById('profissao').value.toLowerCase();
+
+            // Variável para armazenar o objeto correspondente à profissão escolhida
+            let escolhido;
+
+            // Estrutura switch para selecionar a profissão correspondente
+            switch (profissao) {
+                case 'comprador':
+                    escolhido = comprador;
+                    break;
+                case 'analista':
+                    escolhido = analista;
+                    break;
+                case 'programador':
+                    escolhido = programador;
+                    break;
+                default:
+                    alert('Profissão não encontrada.');
+                    return;
+            }
+
+            // Exibe os detalhes da profissão escolhida
+            alert(`A profissão escolhida foi ${escolhido.cargo}. O salário é ${escolhido.salario}, e os softwares utilizados são: ${escolhido.software}.`);
+            console.log(escolhido);
+        }
+    </script>
+</body>
+</html>

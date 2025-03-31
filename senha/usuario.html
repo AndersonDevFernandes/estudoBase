@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Gerador de senha com usuário</h1>
+    <script>
+               
+        
+        let ano = prompt("Digite o ano em vigência")
+
+        let chave1 = (ano /3) + 3112040
+        let chave2 = chave1 - 1970
+        let chave3 = chave2 * 5
+
+        let novaChave = chave1 + chave2 + chave3
+
+        alert(novaChave)
+
+
+    </script>
+</body>
+</html>

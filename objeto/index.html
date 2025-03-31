@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG - Batalha</title>
+</head>
+<body>
+
+<section>
+    <h1>RPG</h1>
+
+    <h2>Qual sua classe?</h2>
+    <select id="classes">
+        <option value="berzerk">Berzerk</option>
+        <option value="paladin">Paladin</option>
+        <option value="wizard">Wizard</option>
+        <option value="rogue">Rogue</option>
+        <option value="templar">Templar</option>
+    </select>
+
+    <h2>Qual a classe inimiga?</h2>
+    <select id="inimigo">
+        <option value="berzerk">Berzerk</option>
+        <option value="paladin">Paladin</option>
+        <option value="wizard">Wizard</option>
+        <option value="rogue">Rogue</option>
+        <option value="templar">Templar</option>
+    </select>
+
+    <h2>Qual o nível do seu personagem?</h2>
+    <select id="level">
+        <script>
+            for (let i = 1; i <= 30; i++) {
+                document.write(`<option value="${i}">${i}</option>`);
+            }
+        </script>
+    </select>
+
+    <h2>Qual o nível do personagem inimigo?</h2>
+    <select id="levelInimigo">
+        <script>
+            for (let i = 1; i <= 30; i++) {
+                document.write(`<option value="${i}">${i}</option>`);
+            }
+        </script>
+    </select>
+
+    <h2>Qual o nível da sua arma?</h2>
+    <select id="arma">
+        <script>
+            for (let i = 1; i <= 5; i++) {
+                document.write(`<option value="${i}">${i}</option>`);
+            }
+        </script>
+    </select>
+
+    <h2>Qual o nível da arma do personagem inimigo?</h2>
+    <select id="armaInimigo">
+        <script>
+            for (let i = 1; i <= 5; i++) {
+                document.write(`<option value="${i}">${i}</option>`);
+            }
+        </script>
+    </select>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <h2 id="resultado">Qual classe será vencedora?</h2>
+</section>
+
+<script>
+    const classes = {
+        berzerk: { nome: "Berzerk", ataque: 15, defesa: 10, hp: 200 },
+        paladin: { nome: "Paladin", ataque: 5, defesa: 20, hp: 200 },
+        wizard: { nome: "Wizard", ataque: 25, defesa: 5, hp: 150 },
+        rogue: { nome: "Rogue", ataque: 20, defesa: 10, hp: 150 },
+        templar: { nome: "Templar", ataque: 5, defesa: 25, hp: 300 }
+    };
+
+    function calcular() {
+        // Pegar valores do usuário
+        const classeEscolhida = document.getElementById("classes").value;
+        const classeInimiga = document.getElementById("inimigo").value;
+        const level = parseInt(document.getElementById("level").value);
+        const levelInimigo = parseInt(document.getElementById("levelInimigo").value);
+        const arma = parseInt(document.getElementById("arma").value);
+        const armaInimigo = parseInt(document.getElementById("armaInimigo").value);
+
+        // Criar cópias dos personagens para evitar modificar o original
+        let jogador = { ...classes[classeEscolhida] };
+        let inimigo = { ...classes[classeInimiga] };
+
+        // Aplicar bônus de nível e arma
+        jogador.ataque += arma * 6;
+        jogador.defesa += level * 2;
+        jogador.hp += level * 5;
+
+        inimigo.ataque += armaInimigo * 6;
+        inimigo.defesa += levelInimigo * 2;
+        inimigo.hp += levelInimigo * 5;
+
+        // Simulação de batalha
+        let vencedor = batalha(jogador, inimigo);
+
+        // Exibir resultado
+        document.getElementById("resultado").innerText = `Vencedor: ${vencedor}`;
+    }
+
+    function batalha(jogador, inimigo) {
+        while (jogador.hp > 0 && inimigo.hp > 0) {
+            // Jogador ataca inimigo
+            let danoJogador = Math.max(jogador.ataque - inimigo.defesa, 1);
+            inimigo.hp -= danoJogador;
+
+            // Se o inimigo morrer, jogador vence
+            if (inimigo.hp <= 0) return jogador.nome;
+
+            // Inimigo ataca jogador
+            let danoInimigo = Math.max(inimigo.ataque - jogador.defesa, 1);
+            jogador.hp -= danoInimigo;
+
+            // Se o jogador morrer, inimigo vence
+            if (jogador.hp <= 0) return inimigo.nome;
+        }
+    }
+</script>
+
+</body>
+</html>
