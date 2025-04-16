@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Lista de Tarefas</h1>
+            <form action="formulario">
+                <label for="">RESPOSÁVEL PELA TAREFA</label>
+                <input type="text" name="responsavel" id="responsavel">
+                <label for="">NOME DA TAREFA</label>
+                <input type="text" name="tarefa" id="tarefa">
+                <label for="">DATA DE INÍCIO</label>
+                <input type="date" name="dataInicio" id="dataInicio">
+                <label for="">DATA DE TÉRMINO</label>
+                <input type="date" name="dataTermino" id="dataTermino">
+                <label for="">RESUMO DA TAREFA</label>
+                <input type="text" name="resumo" id="resumo">
+                <button onclick="adicionar()">adiconar</button>
+            </form>
+        </section>
+        <section>
+            <div id="Tarefas"></div>
+            <button onclick="remover()">Remover Tarefas</button>
+        </section>
+        <script>
+            
+        </script>
+    </main>
+</body>
+</html>

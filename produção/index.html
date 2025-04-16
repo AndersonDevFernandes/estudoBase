@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Produção (Toneladas)</title>
+ <link rel="stylesheet" href="style.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Sistema de Produção (Toneladas)</h1>
+
+  <input id="produto" placeholder="Produto">
+  <input id="quantidade" type="number" placeholder="Quantidade (ton)">
+  <input id="data" type="date">
+  <input id="responsavel" placeholder="Responsável">
+  <input id="meta" type="number" placeholder="Meta diária (ton)">
+  <br>
+  <button onclick="iniciarMaquina()">Iniciar Máquina</button>
+  <button onclick="pararMaquina()">Parar Máquina</button>
+  <br>
+  <button onclick="salvarProducao()">Salvar Produção</button>
+  <div id="statusMaquina"></div>
+  <div id="resultado"></div>
+
+  <div id="responsavelAtivo" style="color: white; margin-top: 10px;"></div>
+
+<!-- Filtros para os gráficos -->
+<h2>Filtros</h2>
+<label style="color: white;">Filtrar por responsável:</label>
+<select id="filtroResponsavel" onchange="gerarGraficos()">
+  <option value="">Todos</option>
+</select>
+
+<label style="color: white; margin-left: 20px;">Filtrar por data:</label>
+<input type="date" id="filtroData" onchange="gerarGraficos()">
+
+  <h2>Produções Registradas</h2>
+  <table id="tabelaProducoes">
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Quantidade (ton)</th>
+        <th>Data</th>
+        <th>Responsável</th>
+        <th>Tempo de Parada</th>
+        <th>Perda Estimada (R$)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Gráficos</h2>
+  <canvas id="graficoProducao"></canvas>
+  <canvas id="graficoParadas"></canvas>
+  <canvas id="graficoPerdas"></canvas>
+
+
+
+  <script src="index.js"></script>
+</body>
+</html>

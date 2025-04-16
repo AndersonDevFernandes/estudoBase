@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Tarefas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #taskList {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        width: 300px;
+        display: inline-block;
+      }
+      .task {
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Lista de Tarefas</h2>
+    <input type="text" id="taskInput" placeholder="Digite uma tarefa" />
+    <button onclick="adicionar()">Adicionar</button>
+    <div id="taskList"></div>
+
+    <script>
+      function adicionar() {
+        const taskInput = document.getElementById("taskInput");
+        const taskList = document.getElementById("taskList");
+
+        if (taskInput.value.trim() === "") {
+          alert("Digite uma tarefa válida!");
+          return;
+        }
+
+        const taskDiv = document.createElement("div");
+        taskDiv.classList.add("task");
+        taskDiv.textContent = taskInput.value;
+
+        taskList.appendChild(taskDiv);
+        taskInput.value = "";
+      }
+    </script>
+  </body>
+</html>

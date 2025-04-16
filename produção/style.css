@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #696969;
+}
+h1,
+h2 {
+  color: #fff;
+}
+input,
+button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button {
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+button:hover {
+  background-color: #45a049;
+}
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+th {
+  background-color: #4caf50;
+  color: white;
+}
+#statusMaquina {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+#resultado {
+  margin-top: 15px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+canvas {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}

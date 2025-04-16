@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Venda de Carros</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        .carro, .vendido { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+        .vendido { background-color: #e0ffe0; }
+        button { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro de Veículo</h2>
+        <input type="text" id="fabricante" placeholder="Fabricante">
+        <input type="text" id="modelo" placeholder="Modelo">
+        <input type="number" id="ano" placeholder="Ano de Fabricação">
+        <input type="number" id="preco" placeholder="Preço">
+        <input type="number" id="km" placeholder="Kilometragem">
+        <button onclick="adicionarCarro()">Adicionar</button>
+
+        <h2>Carros Disponíveis</h2>
+        <div id="listaCarros"></div>
+
+        <h2>Histórico de Vendas</h2>
+        <div id="historicoVendas"></div>
+        <h3>Total Arrecadado: R$ <span id="totalVendas">0</span></h3>
+    </div>
+
+    <script>
+        let totalVendas = 0;
+
+        function adicionarCarro() {
+            const fabricante = document.getElementById('fabricante').value;
+            const modelo = document.getElementById('modelo').value;
+            const ano = document.getElementById('ano').value;
+            const preco = parseFloat(document.getElementById('preco').value);
+            const km = document.getElementById('km').value;
+
+            if (!fabricante || !modelo || !ano || isNaN(preco) || !km) {
+                alert("Preencha todos os campos corretamente.");
+                return;
+            }
+
+            const carroDiv = document.createElement('div');
+            carroDiv.classList.add('carro');
+            carroDiv.innerHTML = `
+                <p><strong>${fabricante} ${modelo}</strong></p>
+                <p>Ano: ${ano} - Preço: R$ ${preco.toFixed(2)} - KM: ${km}</p>
+                <button onclick="venderCarro(this, ${preco})">Vendido</button>
+            `;
+            document.getElementById('listaCarros').appendChild(carroDiv);
+        }
+
+        function venderCarro(botao, preco) {
+            totalVendas += preco;
+            document.getElementById('totalVendas').textContent = totalVendas.toFixed(2);
+
+            const carroVendido = botao.parentElement;
+            carroVendido.classList.add('vendido');
+            carroVendido.removeChild(botao);
+            document.getElementById('historicoVendas').appendChild(carroVendido);
+        }
+    </script>
+</body>
+</html>
