@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow a Garden</title>
+</head>
+<body>
+    <main>
+        <form onsubmit="pesquisar(event)">
+            <input type="text" placeholder="DIGITE O NOME DA PLANTA" id="planta">
+            <div id="nomeDasPlantas"></div>
+            <button type="submit">Pesquisar</button>
+        </form>
+    </main>
+
+    <script>
+    function pesquisar(event) {
+        event.preventDefault(); // Impede o recarregamento da página
+
+        const nomeDigitado = document.getElementById("planta").value;
+        const nomeDasPlantas = document.getElementById("nomeDasPlantas");
+        nomeDasPlantas.innerHTML = "";
+
+        const plantas = [
+            {
+                nome: "Abacate",
+                descricao: "Abacate é uma fruta rica em vitaminas...",
+                valor: "R$1200"
+            },
+            {
+                nome: "Abacaxi",
+                descricao: "O abacaxi é uma fruta rica em vitamina C...",
+                valor: "R$1000"
+            },
+            {
+                nome: "Acerola",
+                descricao: "A acerola é uma fruta rica em vitamina C...",
+                valor: "R$1500"
+            },
+             {
+                nome: "Cenoura",
+                descricao: "A acerola é uma fruta rica em vitamina C...",
+                valor: "R$1500",
+                imagem: "./cenoura.jpg"
+            }
+        ];
+
+        let encontrou = false;
+
+        plantas.forEach(planta => {
+            if (planta.nome.toLowerCase() === nomeDigitado.toLowerCase()) {
+                nomeDasPlantas.innerHTML += `
+                <div>
+                    <h2>${planta.nome}</h2>
+                    <p>${planta.descricao}</p>
+                    <p>Valor: ${planta.valor}</p>
+                    <img src="${planta.imagem}" alt="${planta.nome}">
+                </div>
+                `;
+                encontrou = true;
+            }
+        });
+
+        if (!encontrou) {
+            nomeDasPlantas.innerHTML = "<p>Planta não encontrada.</p>";
+        }
+    }
+    </script>
+</body>
+</html>
