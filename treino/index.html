@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Produção</title>
+</head>
+<body>
+    <main>
+      <!-- Removido o action -->
+      <form onsubmit="enviar(event)">
+        <label for="numItem">Número do Item:</label>
+        <input type="text" id="numItem" name="numItem" required>
+        
+        <label for="numCaixas">Número de Caixas:</label>
+        <input type="text" id="numCaixas" name="numCaixas" required>
+        
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+        
+        <label for="horaInicio">Hora de Início:</label>
+        <input type="time" id="horaInicio" name="horaInicio" required>
+        
+        <label for="horaTermino">Hora de Término:</label>
+        <input type="time" id="horaTermino" name="horaTermino" required>
+        
+        <label for="observacoes">Observações:</label>
+        <textarea id="observacoes" name="observacoes"></textarea>
+        
+        <label for="valorPorCaixa">Valor por Caixa:</label>
+        <input type="text" id="valorPorCaixa" name="valorPorCaixa" required>
+        
+        <!-- type="submit" para funcionar com onsubmit -->
+        <button type="submit">Enviar</button>
+        <div id="resultado"></div>
+      </form>
+    </main>
+
+    <script>
+        function enviar(event) {
+            event.preventDefault(); // impede o reload da página
+
+            const numItem = document.getElementById('numItem').value;
+            const numCaixas = document.getElementById('numCaixas').value;
+            const data = document.getElementById('data').value;
+            const horaInicio = document.getElementById('horaInicio').value;
+            const horaTermino = document.getElementById('horaTermino').value;
+            const observacoes = document.getElementById('observacoes').value;
+            const valorPorCaixa = document.getElementById('valorPorCaixa').value;
+    
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = `
+            <h2>Resumo do Relatório</h2>
+            <p><strong>Número do Item:</strong> ${numItem}</p>
+            <p><strong>Número de Caixas:</strong> ${numCaixas}</p>
+            <p><strong>Data:</strong> ${data}</p>
+            <p><strong>Hora de Início:</strong> ${horaInicio}</p>
+            <p><strong>Hora de Término:</strong> ${horaTermino}</p>
+            <p><strong>Observações:</strong> ${observacoes}</p>
+            <p><strong>Valor por Caixa:</strong> ${valorPorCaixa}</p>
+            `;
+
+            let total = parseFloat(numCaixas) * parseFloat(valorPorCaixa);
+            resultadoDiv.innerHTML += `
+            <p><strong>Total:</strong> ${total.toFixed(2)}</p>
+            `;
+        }
+    </script>
+</body>     
+</html>

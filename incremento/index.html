@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <label for="erroMaquina">Paradas:</label>
+<select id="erroMaquina" name="erroMaquina" required>
+    <option value="">Adicione um erro por vez</option>
+
+    <optgroup label="Mecânicos">
+        <option value="motor_falha">Falha no motor</option>
+        <option value="correia_rompida">Correia rompida</option>
+        <option value="rolamento_travado">Rolamento travado</option>
+    </optgroup>
+
+    <optgroup label="Elétricos">
+        <option value="curto_circuito">Curto-circuito</option>
+        <option value="sensor_defeituoso">Sensor defeituoso</option>
+    </optgroup>
+</select>
+
+<h3>Relatório de Paradas</h3>
+<ul id="relatorio"></ul>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
