@@ -11,10 +11,12 @@ function salvar(){
         return;
     }
 
-    alert(`Cadastro realizado com sucesso! \n
+    alert(`### Cadastro realizado com sucesso! ###\n
         Nome: ${nome} \n
-        Idade: ${idade} \n
-        Email: ${email} \n`)
+        Idade: ${idade} anos\n
+        Email: ${email} \n
+        ##############################################`
+    )
         
         // Cria um novo elemento div para o card
         const candidatos = document.getElementById('candidatos')

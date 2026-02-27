@@ -1,0 +1,108 @@
+{
+  "cars": [
+    {
+      "id": "hyundai_i20n",
+      "name": "Hyundai I20N Rally1",
+      "tracao": "AWD (Tração nas 4 rodas)",
+      "marchas": 5,
+      "peso_kg": 1260,
+      "graus_volante": 360,
+      "torque_nm": 530,
+      "velocidade_maxima_kmh": 200,
+      "titulos_fabricantes": [2019, 2022],
+      "titulos_pilotos": [2019, 2020, 2022],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Hyundai_i20_N_Rally1_-_2022_Rally_Finland_%2852236745536%29.jpg/1280px-Hyundai_i20_N_Rally1_-_2022_Rally_Finland_%2852236745536%29.jpg"
+    },
+    {
+      "id": "toyota_yaris_gr",
+      "name": "Toyota GR Yaris Rally1",
+      "tracao": "AWD (Tração nas 4 rodas)",
+      "marchas": 5,
+      "peso_kg": 1260,
+      "graus_volante": 360,
+      "torque_nm": 500,
+      "velocidade_maxima_kmh": 200,
+      "titulos_fabricantes": [2021, 2022, 2023],
+      "titulos_pilotos": [2021, 2023],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/2022_Rally_Sweden_-_S%C3%A9bastien_Ogier_%2852061820598%29.jpg/1280px-2022_Rally_Sweden_-_S%C3%A9bastien_Ogier_%2852061820598%29.jpg"
+    },
+    {
+      "id": "citroen_xsara",
+      "name": "Citroën Xsara WRC",
+      "tracao": "AWD (Tração nas 4 rodas)",
+      "marchas": 6,
+      "peso_kg": 1230,
+      "graus_volante": 360,
+      "torque_nm": 550,
+      "velocidade_maxima_kmh": 220,
+      "titulos_fabricantes": [2003, 2004, 2005],
+      "titulos_pilotos": [2004, 2005],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Citroen_Xsara_WRC_2005_Rallye_Deutschland.jpg/1280px-Citroen_Xsara_WRC_2005_Rallye_Deutschland.jpg"
+    },
+    {
+      "id": "subaru_impreza",
+      "name": "Subaru Impreza WRC",
+      "tracao": "AWD (Tração simétrica nas 4 rodas)",
+      "marchas": 6,
+      "peso_kg": 1230,
+      "graus_volante": 360,
+      "torque_nm": 560,
+      "velocidade_maxima_kmh": 225,
+      "titulos_fabricantes": [1995, 1996, 1997],
+      "titulos_pilotos": [1995],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Subaru_Impreza_WRC_Monte_Carlo_2008.jpg/1280px-Subaru_Impreza_WRC_Monte_Carlo_2008.jpg"
+    },
+    {
+      "id": "lancia_delta_integrale",
+      "name": "Lancia Delta Integrale",
+      "tracao": "AWD (Tração nas 4 rodas)",
+      "marchas": 5,
+      "peso_kg": 1200,
+      "graus_volante": 540,
+      "torque_nm": 360,
+      "velocidade_maxima_kmh": 210,
+      "titulos_fabricantes": [1987, 1988, 1989, 1990, 1991, 1992],
+      "titulos_pilotos": [1987, 1988, 1989, 1990, 1991, 1992],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Lancia_Delta_HF_Integrale_16V_-_Flickr_-_exfordy.jpg/1280px-Lancia_Delta_HF_Integrale_16V_-_Flickr_-_exfordy.jpg"
+    },
+    {
+      "id": "audi_quattro",
+      "name": "Audi Quattro Sport S1",
+      "tracao": "AWD (Quattro - 4 rodas permanente)",
+      "marchas": 5,
+      "peso_kg": 1090,
+      "graus_volante": 540,
+      "torque_nm": 480,
+      "velocidade_maxima_kmh": 235,
+      "titulos_fabricantes": [1982, 1984],
+      "titulos_pilotos": [1984],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Audi_Quattro_A2_-_Flickr_-_exfordy_%281%29.jpg/1280px-Audi_Quattro_A2_-_Flickr_-_exfordy_%281%29.jpg"
+    },
+    {
+      "id": "ford_focus_rs",
+      "name": "Ford Focus RS WRC",
+      "tracao": "AWD (Tração nas 4 rodas)",
+      "marchas": 6,
+      "peso_kg": 1230,
+      "graus_volante": 360,
+      "torque_nm": 560,
+      "velocidade_maxima_kmh": 220,
+      "titulos_fabricantes": [1979],
+      "titulos_pilotos": [2006, 2007],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Ford_Focus_RS_WRC_08_-_Rallye_Deutschland_2009.jpg/1280px-Ford_Focus_RS_WRC_08_-_Rallye_Deutschland_2009.jpg"
+    },
+    {
+      "id": "mitsubishi_lancer_evolution",
+      "name": "Mitsubishi Lancer Evolution WRC",
+      "tracao": "AWD (4WD com diferencial ativo)",
+      "marchas": 5,
+      "peso_kg": 1230,
+      "graus_volante": 360,
+      "torque_nm": 510,
+      "velocidade_maxima_kmh": 215,
+      "titulos_fabricantes": [],
+      "titulos_pilotos": [1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003],
+      "imagem": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Mitsubishi_Lancer_Evo_IX_WRC.jpg/1280px-Mitsubishi_Lancer_Evo_IX_WRC.jpg"
+    }
+  ]
+}

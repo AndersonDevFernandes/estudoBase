@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content">
+        <header class="header">
+            
+            <button id="btn" class="btn"></button>
+            <button id="btn" class="btn"></button>
+            <button id="btn" class="btn"></button>
+        </header>
+        <main class="mainContent" id="mainContent">
+            <p>Especificações dos maiores carros da historia do WRC</p>
+            <select name="" id="select" class="select">
+                <option value="hyundai_i20n">Hyundai I20N</option>
+                <option value="toyota_yaris_gr">Toyota Yaris GR</option>
+                <option value="citroen_xsara">Citroen Xsara</option>
+                <option value="subaru_impreza">Subaru Impreza</option>
+                <option value="lancia_delta_integrale">Lancia Delta Integrale</option>
+                <option value="audi_quattro">Audi Quattro</option>
+                <option value="ford_focus_rs">Ford Focus RS</option>
+                <option value="mitsubishi_lancer_evolution">Mitsubishi Lancer Evolution</option>
+            </select>
+            <button onclick="selecionar()">Selecionar</button>
+            <div>
+                <div id="modal">
+                    <div class="modalBox">
+                        <button class="modalClose" onclick="fecharModal()">Fechar</button>
+                        <div class="modalContent" id="modal-conteudo"></div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer" id="footer"></footer>
+        </main>
+    </div>
+     <script src="script.js"></script>
+</body>
+
+</html>
